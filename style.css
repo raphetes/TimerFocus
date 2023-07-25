@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  -webkit-font-smoothing: antialised;
+  -moz-osx-font-smoothing: grayscale;
+}
+:root {
+  font-size: 62.5%;
+  --black-base-color: #323238;
+  --gray-base-color: #E1E1E6;
+  --cyan-base-color: #02799D;
+  --white-base-color: #ffffff;
+
+  --rain-bg-color: #32b5dd;
+  --forest-bg-color: #54d454;
+  --cafeteria-bg-color: #df7342;
+  --fireplace-bg-color: #ff9100;
+}
+body {
+  font-family: 'Roboto';
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+main {
+  display: flex;
+  gap: 19rem;
+  align-items: center;
+}
+
+.timer {
+  color: var(--black-base-color);
+  display: flex;
+  font-size: 12.6rem;
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+  cursor: pointer;
+}
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+}
+button {
+  cursor: pointer;
+}
+.controls button {
+  border: none;
+  background: var(--gray-base-color);
+  background: none;
+  transition: opacity 0.1s;
+}
+.controls button:hover {
+  opacity: 0.8;
+}
+.right-page {
+  display: grid;
+  grid-template-areas: 
+  'A B'
+  'C D'
+  ;
+  gap: 3.2rem;
+}
+.right-page button {
+  width: 13.8rem;
+  height: 15.2rem;
+  border-radius: 2.4rem;
+  border: none;
+  background-color: var(--gray-base-color);
+
+ transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+#rain svg path {
+  fill: var(--black-base-color);
+}
+
+#rain:hover  {
+  background-color: var(--rain-bg-color);
+  box-shadow: 2px 2px 10px var(--rain-bg-color);
+}
+#forest:hover {
+  background-color: var(--forest-bg-color);
+  box-shadow: 2px 2px 10px var(--forest-bg-color);
+}
+#cafeteria:hover {
+  background-color: var(--cafeteria-bg-color);
+  box-shadow: 2px 2px 10px var(--cafeteria-bg-color);
+}
+#fireplace:hover {
+  background-color: var(--fireplace-bg-color);
+  box-shadow: 2px 2px 10px var(--fireplace-bg-color);
+}
+
+#rain svg path,
+#forest svg path,
+#cafeteria svg path,
+#fireplace svg path {
+  transition: fill 0.3s;
+}
+#rain:hover svg path,
+#forest:hover svg path,
+#cafeteria:hover svg path,
+#fireplace:hover svg path {
+  fill: var(--white-base-color);
+}
+
+.blockCursor {
+  cursor: no-drop;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.right-page {
+  animation: left-right 1.2s backwards ease;
+}
+.left-page {
+  animation: right-left 1.2s backwards ease;
+}
+@keyframes right-left {
+  from {
+    transform: translateX(-25px)
+  }
+}
+@keyframes left-right {
+  from {
+    transform: translateX(25px);
+  }
+}
